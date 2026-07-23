@@ -1,0 +1,57 @@
+{
+  "init_commands": {
+    "command": [
+      "ATE0",
+      "ATAL",
+      "ATCP18",
+      "ATFCSD300000",
+      "ATFCSM1",
+      "ATSP6",
+      "ATSH7E4",
+      "ATCRA7EC",
+      "ATFCSH7E4",
+      "10C0"
+    ]
+  },
+  "obd_protocol": "7",
+  "data_commands": {
+    "command": [
+      "222003",
+      "222004",
+      "222002",
+      "223206"
+    ]
+  },
+  "soc": {
+    "equation": "0.02*(A*256+B)",
+    "minValue": "-5",
+    "maxValue": "105",
+    "type": "Number",
+    "command": "222002",
+    "ecu": "DADAF1"
+  },
+  "vehicle_reported_speed": {
+    "equation": "0.01*(A*256+B)",
+    "minValue": "0",
+    "maxValue": "180",
+    "type": "Number",
+    "command": "222003",
+    "ecu": "DADAF1"
+  },
+  "voltage": {
+    "equation": "0.5*(A*256+B)",
+    "minValue": "300",
+    "maxValue": "480",
+    "type": "Number",
+    "command": "222004",
+    "ecu": "DADAF1"
+  },
+  "soh": {
+    "equation": "A",
+    "minValue": "0",
+    "maxValue": "105",
+    "type": "Number",
+    "command": "223206",
+    "ecu": "DADAF1"
+  }
+}
