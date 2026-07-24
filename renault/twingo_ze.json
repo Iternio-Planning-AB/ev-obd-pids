@@ -18,7 +18,10 @@
     "command": [
       "222003",
       "222004",
+      "223042",
+      "222001",
       "222002",
+      "222006",
       "223206"
     ]
   },
@@ -44,6 +47,30 @@
     "maxValue": "480",
     "type": "Number",
     "command": "222004",
+    "ecu": "DADAF1"
+  },
+  "current": {
+    "equation": "0.5*(A*256+B)-16383.75",
+    "minValue": "-400",
+    "maxValue": "400",
+    "type": "Number",
+    "command": "223042",
+    "ecu": "DADAF1"
+  },
+  "batt_temp": {
+    "equation": "A-40",
+    "minValue": "-40",
+    "maxValue": "90",
+    "type": "Number",
+    "command": "222001",
+    "ecu": "DADAF1"
+  },
+  "odometer": {
+    "equation": "A*65536+B*256+C",
+    "minValue": "0",
+    "maxValue": "999999",
+    "type": "Number",
+    "command": "222006",
     "ecu": "DADAF1"
   },
   "soh": {
