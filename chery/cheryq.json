@@ -20,8 +20,6 @@
       "224404",
       "224406",
       "22440E",
-      "1003",
-      "22FD0A",
       "ATSH7E6",
       "ATFCSH7E6",
       "224314",
@@ -30,6 +28,7 @@
       "1003",
       "22520D",
       "226802",
+      "22684E",
       "ATSH760",
       "ATFCSH760",
       "ATCRA770",
@@ -139,13 +138,13 @@
     "command": "226802",
     "ecu": "7E0"
   },
-  "kwh_charged": {
-    "equation": "(B*65536+C*256+D)*0.00042",
+  "hvac_power": {
+    "equation": "M*0.05",
     "minValue": "0",
-    "maxValue": "100",
+    "maxValue": "10",
     "type": "Number",
-    "command": "22FD0A",
-    "ecu": "7E5"
+    "command": "22684E",
+    "ecu": "7E0"
   },
   "tire_pressure_fl": {
     "equation": "A*1.38",
