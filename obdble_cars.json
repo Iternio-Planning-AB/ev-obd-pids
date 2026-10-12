@@ -125,5 +125,10 @@
   "honda:eny1:26*": {
     "supports": ["calibration", "driving", "charging"],
     "pids": "eny1"
-}
+  },
+  "chery:q:*": {
+    "supports": ["calibration", "driving", "charging"],
+    "pids": "cheryq",
+    "groups": ["tester"]
+  }
 }
