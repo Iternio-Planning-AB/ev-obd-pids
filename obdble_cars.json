@@ -125,5 +125,16 @@
   "honda:eny1:26*": {
     "supports": ["calibration", "driving", "charging"],
     "pids": "eny1"
+  },
+  "mazda:6e:*": {
+    "supports": ["calibration", "driving", "charging"],
+    "pids": "mazda6e",
+    "groups": ["tester"]
+  },
+  "mazda:ez6:*": {
+    "supports": ["calibration", "driving", "charging"],
+    "pids": "mazda6e",
+    "groups": ["tester"]
+  }
 }
-}
+

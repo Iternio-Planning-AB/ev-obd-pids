@@ -1,0 +1,62 @@
+{
+    "init_commands": {
+        "command": [
+            "ATZ",
+            "ATE0",
+            "ATL0",
+            "ATS0",
+            "ATH1",
+            "ATM0",
+            "ATAT1",
+            "ATAL",
+            "ATSTFF",
+            "ATFE",
+            "ATSP6"
+        ]
+    },
+    "obd_protocol": "6",
+    "data_commands": {
+        "command": [
+            "ATSH7E2",
+            "ATCRA7EA",
+            "22F1AE",
+            "22F1AF",
+            "ATSH7A1",
+            "ATCRA7A9",
+            "22F228",
+            "22F229"
+        ]
+    },
+    "soc": {
+        "command": "22F1AF",
+        "ecu": "7EA",
+        "equation": "((A<<8)+B)/10",
+        "type": "Number",
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "voltage": {
+        "command": "22F228",
+        "ecu": "7A9",
+        "equation": "((A<<8)+B)/10",
+        "type": "Number",
+        "minValue": 300,
+        "maxValue": 450
+    },
+    "current": {
+        "command": "22F229",
+        "ecu": "7A9",
+        "equation": "(((A<<8)+B)-6000)/10",
+        "type": "Number",
+        "minValue": -300,
+        "maxValue": 600
+    },
+    "odometer": {
+        "command": "22F1AE",
+        "ecu": "7EA",
+        "equation": "((A<<24)+(B<<16)+(C<<8)+D)/10",
+        "type": "Number",
+        "minValue": 0,
+        "maxValue": 1000000
+    }
+}
