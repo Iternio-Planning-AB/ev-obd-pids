@@ -1,0 +1,92 @@
+{
+  "init_commands": {
+    "command": [
+      "ATZ",
+      "ATE0",
+      "ATAL",
+      "ATSP6",
+      "ATH0"
+    ]
+  },
+  "obd_protocol": "6",
+  "data_commands": {
+    "command": [
+      "ATSH79B",
+      "ATCRA7BB",
+      "2107",
+      "2104",
+      "2161",
+      "ATSH7E4",
+      "ATCRA7EC",
+      "222002",
+      "22320C",
+      "ATSH743",
+      "ATCRA763",
+      "22200C"
+    ]
+  },
+  "soc": {
+    "equation": "0.02*(A*256+B)",
+    "minValue": "-5",
+    "maxValue": "105",
+    "type": "Number",
+    "command": "222002",
+    "ecu": "7E4"
+  },
+  "voltage": {
+    "equation": "(I*256+J)/64",
+    "minValue": "250",
+    "maxValue": "420",
+    "type": "Number",
+    "command": "2107",
+    "ecu": "79B"
+  },
+  "current": {
+    "equation": "-1*(Signed(K)*256+L)/32",
+    "minValue": "-400",
+    "maxValue": "400",
+    "type": "Number",
+    "command": "2107",
+    "ecu": "79B"
+  },
+  "batt_temp": {
+    "equation": "(Signed(A)*256+B+Signed(C)*256+D)/128",
+    "minValue": "-40",
+    "maxValue": "80",
+    "type": "Number",
+    "command": "2104",
+    "ecu": "79B"
+  },
+  "soh": {
+    "equation": "I/2",
+    "minValue": "0",
+    "maxValue": "105",
+    "type": "Number",
+    "command": "2161",
+    "ecu": "79B"
+  },
+  "capacity": {
+    "equation": "(A*256+B)*0.005",
+    "minValue": "0",
+    "maxValue": "20",
+    "type": "Number",
+    "command": "22320C",
+    "ecu": "7E4"
+  },
+  "ext_temp": {
+    "equation": "((C*256+D)-400)/10",
+    "minValue": "-50",
+    "maxValue": "100",
+    "type": "Number",
+    "command": "22200C",
+    "ecu": "743"
+  },
+  "odometer": {
+    "equation": "J*16777216+K*65536+L*256+M",
+    "minValue": "0",
+    "maxValue": "999999",
+    "type": "Number",
+    "command": "2161",
+    "ecu": "79B"
+  }
+}

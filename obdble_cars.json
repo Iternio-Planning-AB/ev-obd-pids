@@ -135,6 +135,10 @@
     "supports": ["calibration", "driving", "charging"],
     "pids": "mazda6e",
     "groups": ["tester"]
+  },
+  "smart:eq:*": {
+    "supports": ["calibration", "driving", "charging"],
+    "pids": "smart_eq",
+    "groups": ["tester"]
   }
 }
-
