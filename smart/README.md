@@ -1,7 +1,7 @@
 # smart EQ fortwo / forfour (453, 2017–2024)
 
 **Status: draft, not yet tested with ABRP.** The requests and formulas were verified with manual
-requests on a smart EQ forfour (2019, 77,390 km) against the values of the
+requests on a smart EQ forfour (77,390 km) against the values of the
 [OVMS](https://github.com/openvehicles/Open-Vehicle-Monitoring-System-3) smart EQ vehicle module
 (`vehicle_smarteq`), which reads the same ECUs. The car uses 11 bit CAN IDs (protocol 6).
 
@@ -51,6 +51,22 @@ The dashboard changed together with the EVC value while the kernel SOC stayed th
 dashboard follows the EVC value with a scale. The EVC value is used for `soc` (resolution 0.02 %).
 `2125` (B,C / 16, 97.1 %) is another BMS SOC and is not used.
 
+## Other apps
+
+The ABRP live data page for the smart EQ forfour
+(`https://abetterrouteplanner.com/resources/live-data/smart-eq?car=smart:eq:20:17:forfour`)
+recommends Car Scanner. Requests sent by Car Scanner on the same car (counted at the adapter):
+
+| ECU | Requests | Result |
+|---|---|---|
+| 79B (BMS) | `2104`, `2107`, `2108`, `2141`, `2142`, `220209` | answered |
+| 7E4 (EVC) | `223024`, `223045`, `223307`, `223376`, `2233AE`, `223436`, `223438` | answered |
+| 75A | `222004`, `227001`, `22700E`, `22700F`, `227010`, `227033` | answered |
+| 740 (ABS) | `224B04` ("[ABS] Vehicle speed" in Car Scanner) | **no answer** on response ID 748 (28 of 28) |
+| 7E4 | `2104` | NRC 12 |
+
+No generic OBD2 requests (`01xx` to 7DF) were sent; the car does not seem to support them.
+
 ## Open points
 
 - **SOC scale:** both "EVC / 0.97" and "EVC + 3" fit the three points near 100 %. Points at a
@@ -59,6 +75,9 @@ dashboard follows the EVC value with a scale. The EVC value is used for `soc` (r
   A request at a low SOC will show it.
 - **`current` while charging:** must be negative; not yet tested.
 - **`batt_temp` below 0 °C:** not yet tested.
-- **Speed:** no diagnostic DID known (OVMS reads the speed from a broadcast frame).
+- **Speed:** no working diagnostic DID known (OVMS reads the speed from a broadcast frame).
+  Car Scanner uses ABS 740 `224B04`, which did not answer on 748; response ID 760 is not yet
+  tested with the ignition on.
 - **`is_charging`:** not available. `22339D` (EVC) only shows that the charging plug is connected.
-- **`obdble_cars.json`:** no entry yet; the ABRP car model IDs of the smart EQ are not known.
+- **`obdble_cars.json`:** the entry `smart:eq:*` uses the car ID of the ABRP live data page
+  (`smart:eq:20:17:forfour`) and the `tester` group until the list is tested with ABRP.
